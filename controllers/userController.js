@@ -29,11 +29,9 @@ class UserController {
     const { body } = req;
 
     if (body.index && body.newName) {
-      this.names.splice(body.index, 1, body.newName);
-      // Por que no funciona esto?
-      // this.names[body.index] = body.newName;
-      // console.log(body.newName);
-      console.log(this.names);
+      this.names[body.index] = body.newName;
+      // Otra alternativa
+      // this.names.splice(body.index, 1, body.newName);
       res.status(200).send("usuario modificado");
     } else {
       res.status(400).send("falta información");
